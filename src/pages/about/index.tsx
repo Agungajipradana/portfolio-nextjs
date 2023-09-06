@@ -1,25 +1,32 @@
-const About = () => {
-  return (
-    <>
-      <div className="flex justify-center items-center text-center pt-20 text-slate-500">
-        <div>
-          <h1 className="text-3xl">About</h1>
-          <p className="text-sm">About Section</p>
-          <div className="box-border border-none mx-20 pt-10 text-left pb-10">
-            <p>
-              I am Agung Aji Pradana, a passionate individual with a thirst for technology and innovation. I thrive in the world of possibilities that technology offers and continuously seek opportunities to excel in this dynamic field. As
-              an Administration professional in the MSME sector, I have been actively involved in improving operational efficiency within companies, which has further fueled my passion for making a positive impact. My journey in technology
-              started with a Bachelor`s degree in Computer Science from Gunadarma University. Throughout my academic journey, I honed my skills and graduated with a commendable GPA of 3.18.
-            </p>
+import { useContext } from "react";
+import { DarkModeContext } from "@/context/DarkMode";
 
-            <p>
-              Driven by a desire for continuous learning, I recently completed a Fullstack NodeJS Bootcamp at PT Code Development Indonesia. During this intensive program, I had the chance to work on exciting projects, including the
-              creation of the Realta Hotel using NextJs and NestJs, with a PostgreSQL database and styled with Tailwind CSS. My experience in this bootcamp has further solidified my foundation in web development.
-            </p>
+const About = () => {
+  const darkModeContext = useContext(DarkModeContext);
+
+  if (!darkModeContext) {
+    return null;
+  }
+
+  const { isDarkMode } = darkModeContext;
+
+  return (
+    <div className={`py-2 ${isDarkMode && "bg-gray-800"}`}>
+      <div className="flex flex-wrap mb-24 mt-20">
+        <div className={`flex mx-10 max-w-full max-h-full lg:justify-start lg:items-start lg:text-start lg:mx-40 lg:box-border lg:border-4-none lg:mt-20 ${isDarkMode ? "text-slate-50" : "text-slate-500"}`}>
+          <div>
+            <h1 className="font-semibold text-2xl uppercase lg:text-3xl">About Me</h1>
+            <div className="pt-5 text-sm lg:text-base lg:w-1/2 lg:h-40 lg:text-left lg:pb-10">
+              <p>
+                I am a person who likes to pay attention to details in life. I found myself drawn to Web Developer because I wanted to build a website that would help other people. I`ve always felt challenged to create inovative websites to
+                solve life`s problems.
+              </p>
+              <button className={`btn mt-5 ${isDarkMode ? "bg-gray-900 text-slate-50 hover:bg-slate-200 hover:text-gray-900" : "bg-slate-200 text-gray-900 hover:bg-gray-900 hover:text-slate-200"}`}>My Resume</button>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

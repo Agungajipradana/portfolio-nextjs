@@ -10,98 +10,98 @@ import imageNest from "../../assets/images/techStack/nest.svg";
 import imagePostgre from "../../assets/images/techStack/postgresql.svg";
 import imageTailwind from "../../assets/images/techStack/tailwind.svg";
 import imageBootstrap from "../../assets/images/techStack/bootstrap.svg";
-import imageRedux from "../../assets/images/techStack/redux.png";
-import imageVSCode from "../../assets/images/techStack/vscode.svg";
-import imageGithub from "../../assets/images/techStack/GitHub-dark.svg";
+import imageRedux from "../../assets/images/techStack/redux.svg";
 import imageGit from "../../assets/images/techStack/git.svg";
 import imagePostman from "../../assets/images/techStack/postman.svg";
 import imageNode from "../../assets/images/techStack/nodejs.svg";
 import imageJest from "../../assets/images/techStack/jest.svg";
+import { useContext } from "react";
+import { DarkModeContext } from "@/context/DarkMode";
 
 const TechStack = () => {
+  const darkModeContext = useContext(DarkModeContext);
+
+  if (!darkModeContext) {
+    return null;
+  }
+
+  const { isDarkMode } = darkModeContext;
+
   return (
-    <>
-      <div className="flex justify-center items-center text-center pt-20 text-slate-500 pb-20 ">
+    <div className={`py-2 ${isDarkMode && "bg-gray-800"}`}>
+      <div className={`flex justify-center items-center text-center lg:my-20 ${isDarkMode ? "text-slate-50" : "text-slate-500"}`}>
         <div>
-          <h1 className="text-3xl">My Tech Stack</h1>
-          <p className="text-sm">Technologies I’ve been working with recently</p>
-          <div className="grid grid-cols-6 gap-8 box-border border-4-none pt-5">
-            <div>
-              <Image src={imageHTML} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+          <h1 className="text-2xl font-semibold lg:text-3xl">My Tech Stack</h1>
+          <p className="text-sm lg:text-base">Technologies I`ve been working with recently</p>
+          <div className="max-w-full max-h-full mx-auto grid grid-cols-3 gap-8  pt-5 md:grid-cols-4 lg:grid-cols-8 lg:gap-12 ">
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageHTML} alt="" />
               <p>HTML5</p>
             </div>
-            <div>
-              <Image src={imageCSS} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageCSS} alt="" />
               <p>CSS3</p>
             </div>
-            <div>
-              <Image src={imageJS} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageJS} alt="" />
               <p>JavaScript</p>
             </div>
-            <div>
-              <Image src={imageTS} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageTS} alt="" />
               <p>TypeScript</p>
             </div>
-            <div>
-              <Image src={imageReact} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-18 ">
+              <Image src={imageReact} alt="" />
               <p>React</p>
             </div>
-            <div>
-              <Image src={imageNext} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageNext} alt="" />
               <p>Next.js</p>
             </div>
-            <div>
-              <Image src={imageExpress} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageExpress} alt="" />
               <p>Express.js</p>
             </div>
-            <div>
-              <Image src={imageNest} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageNest} alt="" />
               <p>Nest.js</p>
             </div>
-            <div>
-              <Image src={imagePostgre} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imagePostgre} alt="" />
               <p>PostgreSQL</p>
             </div>
-            <div>
-              <Image src={imageTailwind} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
-              <p>TailwindCSS</p>
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageTailwind} alt="" />
+              <p>Tailwind</p>
             </div>
-            <div>
-              <Image src={imageBootstrap} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageBootstrap} alt="" />
               <p>Bootstrap</p>
             </div>
-            <div>
-              <Image src={imageRedux} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageRedux} alt="" />
               <p>Redux</p>
             </div>
-            <div>
-              <Image src={imageVSCode} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
-              <p>VS Code</p>
-            </div>
-            <div>
-              <Image src={imageGithub} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
-              <p>Github</p>
-            </div>
-            <div>
-              <Image src={imageGit} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageGit} alt="" />
               <p>Git</p>
             </div>
-            <div>
-              <Image src={imagePostman} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imagePostman} alt="" />
               <p>Postman</p>
             </div>
-            <div>
-              <Image src={imageNode} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageNode} alt="" />
               <p>Node.js</p>
             </div>
-            <div>
-              <Image src={imageJest} alt="" className="w-20 h-20 border-1-none bg-slate-50" />
+            <div className="w-16 h-16 lg:w-20 lg:h-20 ">
+              <Image src={imageJest} alt="" />
               <p>Jest</p>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

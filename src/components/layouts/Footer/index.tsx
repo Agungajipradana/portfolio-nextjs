@@ -2,22 +2,25 @@ import Image from "next/image";
 import imageGithub from "../../../assets/images/navbar/Github.svg";
 import imageLinkedin from "../../../assets/images/navbar/linkedin.svg";
 import Link from "next/link";
+import { useContext, useState } from "react";
+import { DarkModeContext } from "@/context/DarkMode";
 
 const Footer = () => {
+  const darkModeContext = useContext(DarkModeContext);
+
+  if (!darkModeContext) {
+    return null;
+  }
+
+  const { isDarkMode } = darkModeContext;
   return (
-    <>
-      <div className="pb-5 border-t-2 border-slate-500 mx-20  ">
-        <div className=" flex justify-center items-center box-border border-4-none gap-4 pt-2">
-          <Link href="https://github.com/Agungajipradana" target="_blank">
-            <Image src={imageGithub} alt="" />
-          </Link>
-          <Link href="https://www.linkedin.com/in/agungajipradana/" target="_blank">
-            <Image src={imageLinkedin} alt="" />
-          </Link>
+    <footer className={`pt-2 ${isDarkMode && "bg-gray-800"}`}>
+      <div className="relative h-[242px] min-h-full">
+        <div className={`absolute bottom-0 text-xs font-medium footer footer-center p-4 lg:text-sm ${isDarkMode ? "bg-gray-900 text-slate-50" : "bg-slate-200 text-gray-800"}`}>
+          <p>Copyright © 2023 - All right reserved by Agung Aji Pradana</p>
         </div>
-        <div className="pt-2 flex justify-center">Created By Agung Aji Pradana | All Rights Reserved 2023.</div>
       </div>
-    </>
+    </footer>
   );
 };
 

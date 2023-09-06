@@ -1,28 +1,20 @@
-import React from "react";
 import Navbar from "../Navbar";
-import Hero from "../../../pages/hero";
-import About from "../../../pages/about";
-import TechStack from "../../../pages/techStack";
-import Projects from "../../../pages/projects";
 import Footer from "../Footer";
-
-type AppShellProps = {
-  children: React.ReactNode;
-};
+import { useRouter } from "next/router";
+import { DarkModeContextProvider } from "@/context/DarkMode";
+import { AppShellProps } from "@/types";
 
 const AppShell = (props: AppShellProps) => {
   const { children } = props;
+  const router = useRouter();
+  const is404Page = router.pathname === "/404";
   return (
     <>
-      <div className="max-h-min">
-        <Navbar />
+      <DarkModeContextProvider>
+        {!is404Page && <Navbar />}
         {children}
-        <Hero />
-        <About />
-        <TechStack />
-        <Projects />
-        <Footer />
-      </div>
+        {!is404Page && <Footer />}
+      </DarkModeContextProvider>
     </>
   );
 };
