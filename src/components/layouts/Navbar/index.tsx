@@ -137,7 +137,7 @@ const Navbar = () => {
                 <ul tabIndex={0} className={`dropdown-content z-[1] menu mt-2 shadow bg-base-100 rounded-box w-52 ${isDarkMode && "bg-gray-800 "}`}>
                   {navLink.map((item) => (
                     <li key={item.path}>
-                      <Link href={item.path} className={`hover:bg-gray-800 hover:text-slate-300 transition duration-300 ease-out hover:ease-in  ${isDarkMode && "hover:bg-slate-300 hover:text-gray-900 "}`}>
+                      <Link href={item.path} className={`hover:bg-gray-800 hover:text-gray-800 transition duration-300 ease-out hover:ease-in  ${isDarkMode && "hover:bg-slate-300 hover:text-gray-900 "}`}>
                         {item.label}
                       </Link>
                     </li>
